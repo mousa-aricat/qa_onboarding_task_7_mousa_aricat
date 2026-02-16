@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_16_084147) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_16_102726) do
   create_table "attendance_setups", force: :cascade do |t|
+    t.integer "branch_id"
     t.datetime "created_at", null: false
     t.boolean "roaster"
     t.datetime "updated_at", null: false
   end
 
   create_table "branches", force: :cascade do |t|
+    t.integer "company_id"
     t.datetime "created_at", null: false
     t.string "location"
     t.string "name"
@@ -31,6 +33,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_16_084147) do
   end
 
   create_table "employees", force: :cascade do |t|
+    t.integer "branch_id"
     t.datetime "created_at", null: false
     t.string "email"
     t.bigint "employment_number"
@@ -42,12 +45,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_16_084147) do
   create_table "financial_packages", force: :cascade do |t|
     t.float "amount"
     t.datetime "created_at", null: false
+    t.integer "employee_id"
     t.date "from_date"
     t.date "to_date"
     t.datetime "updated_at", null: false
   end
 
   create_table "rooms", force: :cascade do |t|
+    t.integer "branch_id"
     t.datetime "created_at", null: false
     t.string "name"
     t.datetime "updated_at", null: false
@@ -62,6 +67,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_16_084147) do
   create_table "terminations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.date "date"
+    t.integer "employee_id"
     t.datetime "updated_at", null: false
   end
 end
