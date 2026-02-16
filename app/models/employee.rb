@@ -12,6 +12,8 @@ class Employee < ApplicationRecord
                         format: { with: VALID_EMAIL_REGEX },
                         length: {minimum: 5, maximum: 100}
     validates :hire_date, presence: true
-    validates :employment_number, presence: true
+    validates :employment_number, 
+                presence: true, 
+                uniqueness: { scope: :branch_id}
 
 end
