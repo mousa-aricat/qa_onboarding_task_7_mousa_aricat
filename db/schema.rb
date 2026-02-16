@@ -65,12 +65,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_16_103118) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "termination_packages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.date "date"
-    t.datetime "updated_at", null: false
-  end
-
   create_table "terminations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.date "date"
