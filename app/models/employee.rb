@@ -2,6 +2,8 @@ class Employee < ApplicationRecord
     belongs_to :branch 
     has_one :termination
     has_many :financial_packages
+    has_many :employee_rooms
+    has_many :rooms, through: :employee_rooms
     VALID_EMAIL_REGEX=/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :name, presence: true, 
                         length: {minimum: 3, maximum: 30}
